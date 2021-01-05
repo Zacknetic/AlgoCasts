@@ -7,11 +7,11 @@
 
 function maxChar(str) {
     let maxChar = 'a';
-    const chars = {};
+    const charMap = {};
 
     for (let char of str){
-        chars[char] = chars[char] + 1 || 1;
-        if(chars[char] > chars[maxChar]) {
+        charMap[char] = charMap[char] + 1 || 1;
+        if(charMap[char] > charMap[maxChar]) {
             maxChar = char;
         }
     }
