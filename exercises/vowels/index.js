@@ -6,8 +6,21 @@
 //   vowels('Hi There!') --> 3
 //   vowels('Why do you ask?') --> 4
 //   vowels('Why?') --> 0
-const vowelsList = ['a', 'e', 'i', 'o', 'u'];
+//const vowelsList = ['a', 'e', 'i', 'o', 'u'];
 
+
+function vowels(str) {
+    let vowelsCount = 0;
+    const matches = str.match(/[aeiou]/gi);
+    if(matches !== null){
+        vowelsCount = matches.length;
+    }
+    return vowelsCount;
+}
+
+module.exports = vowels;
+
+/*
 function vowels(str) {
     let vowelsCount = 0;
     for (let letter of str){
@@ -16,6 +29,4 @@ function vowels(str) {
         }
     }
     return vowelsCount;
-}
-
-module.exports = vowels;
+}*/
