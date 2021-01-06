@@ -25,19 +25,20 @@ function pyramid(n, row = 0, stair = '') {
         return;
     }
 
+    //three cases, add a '#', add a ' ', or change to a new row
+    //next row
+    if(stair.length === (2 * n) - 1){
+        console.log(stair);
+        return pyramid(n, row + 1, '');
+    }
+
     if(stair.length + 1 >= n - row && stair.length + 1 <= n + row){
         stair += '#';
     } else {
         stair += ' ';
     }
 
-//three cases, add a '#', add a ' ', or change to a new row
-//next row
-if(stair.length === (2 * n) - 1){
-    console.log(stair);
-    return pyramid(n, row + 1, '');
+    pyramid (n, row, stair);
 }
 
-pyramid (n, row, stair);
-}
 module.exports = pyramid;
