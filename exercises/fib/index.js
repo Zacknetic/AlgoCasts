@@ -8,6 +8,27 @@
 // Example:
 //   fib(4) === 3
 
-function fib(n) {}
+//iterative solution : Runtime Complexity: O(n) because for every n, we are running one operation
+/*
+function fib(n){
+    const result = [0,1];
+    for (let i = 2; i <= n; i++){
+        const a = result[i - 1];
+        const b = result[i - 2];
 
+        result.push(a+b);
+    }
+
+    return result[n];
+
+}*/
+//recursive solution
+function fib(n) {
+    if(n<=1){
+        return n;
+    }
+    return fib(n - 1) + fib(n - 2);
+
+
+}
 module.exports = fib;
