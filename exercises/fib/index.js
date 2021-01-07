@@ -21,14 +21,22 @@ function fib(n){
 
     return result[n];
 
-}*/
-//recursive solution
+}
+//igor's recursive solution
 function fib(n) {
     if(n<=1){
         return n;
     }
     return fib(n - 1) + fib(n - 2);
 
-
 }
+*/
+//zack's recursive solution is it faster?
+function fib(n, list = [0,1]) {
+    if( n <= 1){
+        return list[1];
+    } 
+    return fib(n - 1, [list[1], list[0] + list[1]]);
+}
+
 module.exports = fib;
