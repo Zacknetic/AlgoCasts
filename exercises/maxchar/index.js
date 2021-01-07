@@ -5,6 +5,8 @@
 // maxChar("abcccccccd") === "c"
 // maxChar("apple 1231111") === "1"
 
+
+//Runtime Complexity O(n)  Reasoning: iterating through a collection once.
 function maxChar(str) {
     let maxChar = 'a';
     const charMap = {};
