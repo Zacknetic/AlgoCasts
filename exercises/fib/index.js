@@ -8,6 +8,31 @@
 // Example:
 //   fib(4) === 3
 
+function memoize(fn) {
+    const cache = {};
+    return function(...args) {
+        if (cache[args]) {
+            return cache[args];
+        }
+
+        const result = fn.apply(this, args);
+        cache[args] = result;
+
+        return result;
+    }
+}
+
+function fib(n){
+if( n < 2) {
+    return n
+}
+
+return fib(n - 1) + fib(n - 2);
+}
+
+fib = memoize(fib);
+module.exports = fib;
+
 //iterative solution : Runtime Complexity: O(n) because for every n, we are running one operation
 /*
 function fib(n){
@@ -28,15 +53,14 @@ function fib(n) {
         return n;
     }
     return fib(n - 1) + fib(n - 2);
-
 }
-*/
+
 //zack's recursive solution is it faster?
-function fib(n, list = [0,1]) {
+function fib(n, list = [0,1], count = 0) {
     if( n <= 1){
         return list[1];
     } 
     return fib(n - 1, [list[1], list[0] + list[1]]);
 }
+*/
 
-module.exports = fib;
