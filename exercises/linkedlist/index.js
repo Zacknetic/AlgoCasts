@@ -29,17 +29,24 @@ class LinkedList {
     }
 
     getFirst(){
-        return this.head;
+        return this.getAt(0);
+
+        //return this.head;
     }
 
     removeFirst(){
+        this.removeAt(0);
+        /*
         if(!this.head){
             return;
         }
         this.head = this.head.next;
+        */
     }
 
     removeLast(){
+        this.removeAt(this.size()-1)
+        /*
         if(!this.head){
             return null;
         }
@@ -56,18 +63,23 @@ class LinkedList {
             tempNode = tempNode.next;
         }
         lastNode.next = null;
+        */
     }
     
     insertLast(data){
+        this.insertAt(data, this.size())
+        /*
         const last = this.getLast();
         if(last){
             last.next = new Node(data);
         } else {
             this.insertFirst(data);  
-        }
+        }*/
     }
     
     getLast(){
+        return this.getAt(this.size()-1)
+        /*
         if(!this.head){
             return null;
         }
@@ -77,25 +89,13 @@ class LinkedList {
             lastNode = tempNode;
             tempNode = tempNode.next;
         }
-        return lastNode;
+        return lastNode;*/
     }
 
     getAt(index){
         if(!this.head){
             return null;
-        }
-        //Bad code, iterates twice! 
-        /*
-        if (n > this.size()){
-            return;
-        }                 
-   
-        let tempNode = this.head;
-        for(let i = 0; i < n; i ++){
-            tempNode = tempNode.next;
-        }
-        return tempNode;
-        */    
+        }  
         let count = 0;
         let node = this.head;
         while(node) {
