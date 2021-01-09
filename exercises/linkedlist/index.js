@@ -146,6 +146,14 @@ class LinkedList {
     clear(){
         this.head = null;
     }
+
+    forEach(fn){
+        let node = this.head;
+        while(node){
+            fn(node);
+            node = node.next;
+        }
+    }
 }
 
 module.exports = { Node, LinkedList };
