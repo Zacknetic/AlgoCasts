@@ -41,17 +41,32 @@ class LinkedList {
 
     removeLast(){
         if(!this.head){
+            return null;
+        }
+
+        if(!this.head.next){
+            this.head = null;
             return;
         }
+
         let tempNode = this.head;
-        for(let i = 0; i < this.size - 1; i++){
+        let lastNode;
+        while(tempNode.next){
+            lastNode = tempNode;
             tempNode = tempNode.next;
         }
-        tempNode.next = null;
-        
+        lastNode.next = null;
     }
     
-
+    insertLast(data){
+        const last = this.getLast();
+        if(last){
+            last.next = new Node(data);
+        } else {
+            this.insertFirst(data);  
+        }
+    }
+    
     getLast(){
         if(!this.head){
             return null;
@@ -63,6 +78,34 @@ class LinkedList {
             tempNode = tempNode.next;
         }
         return lastNode;
+    }
+
+    getAt(n){
+        if(!this.head){
+            return null;
+        }
+        //Bad code, iterates twice! 
+        /*
+        if (n > this.size()){
+            return;
+        }                 
+   
+        let tempNode = this.head;
+        for(let i = 0; i < n; i ++){
+            tempNode = tempNode.next;
+        }
+        return tempNode;
+        */    
+        let count = 0;
+        let node = this.head;
+        while(node) {
+            if(count === n){
+                return node;
+            }
+            count++;
+            node = node.next;
+        }
+        return null
     }
 
     clear(){
