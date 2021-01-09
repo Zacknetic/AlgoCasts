@@ -16,8 +16,8 @@ const Stack = require('./stack');
 
 class Queue {
     constructor(){
-    this.stackA = new Stack;
-    this.stackB = new Stack;
+    this.stackA = new Stack();
+    this.stackB = new Stack();
     }
 
     add(record) {
