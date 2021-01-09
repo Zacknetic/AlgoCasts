@@ -80,7 +80,7 @@ class LinkedList {
         return lastNode;
     }
 
-    getAt(n){
+    getAt(index){
         if(!this.head){
             return null;
         }
@@ -99,13 +99,48 @@ class LinkedList {
         let count = 0;
         let node = this.head;
         while(node) {
-            if(count === n){
+            if(count === index){
                 return node;
             }
             count++;
             node = node.next;
         }
         return null
+    }
+
+    removeAt(index){
+        if(!this.head){
+            return null;
+        }
+
+        if(index === 0){
+            this.head = this.head.next;
+            return;
+        }
+
+        const previous = this.getAt(index - 1);
+        if(!previous || !previous.next){
+            return;
+        }
+        previous.next = previous.next.next;
+        
+    }
+
+    insertAt(data, index){
+        if(!this.head){
+            this.head = new Node(data);
+            return;
+        }
+
+        if(index === 0){
+            this.head = new Node(data, this.head);
+            return;
+        }
+        const previousNode = this.getAt(index - 1) || this.getLast();
+        const nextNode = previousNode.next;
+
+        previousNode.next = new Node(data);
+        previousNode.next.next = nextNode;
     }
 
     clear(){
