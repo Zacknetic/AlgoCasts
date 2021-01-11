@@ -92,6 +92,8 @@ class LinkedList {
         return lastNode;*/
     }
 
+
+
     getAt(index){
         if(!this.head){
             return null;
@@ -151,6 +153,14 @@ class LinkedList {
         let node = this.head;
         while(node){
             fn(node);
+            node = node.next;
+        }
+    }
+
+    *[Symbol.iterator]() {
+        let node = this.head;
+        while(node){
+            yield node;
             node = node.next;
         }
     }
