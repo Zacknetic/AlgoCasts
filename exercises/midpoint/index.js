@@ -22,7 +22,6 @@ function midpoint(list) {
     }
 
     return slow;
-
 }
 
 module.exports = midpoint;
