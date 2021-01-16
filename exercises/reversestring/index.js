@@ -15,15 +15,19 @@ function reverse(str){
 
 
 function reverse(str){
-    let reversed = '';
-    let arr = str.split('')
-    for(let i = 0; i < str.length; i++){
-       character = arr[i];
-       console.log(character);
-        reversed = character + reversed;
+    let arr = str.split('');
+    let first = '';
+    let end = ''
+    
+  for(let i = 0; i < Math.round(arr.length / 2); i++){
+      first = arr[i];
+      end = arr[arr.length - (1 + i)];
+      arr[i] = end;
+      arr[arr.length - (1 + i)] = first;
     }
-    return reversed;
-}
+
+    return arr.join('');
+  }
 
 /*
 function reverse(str){
