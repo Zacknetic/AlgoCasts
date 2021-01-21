@@ -12,11 +12,31 @@ function palindrome(str) {
     return (str === reverseString(str));
 }*/
 
+/*
 function palindrome(str) {
     return str.split('').every((character, i) => {
         return character === str[str.length - i - 1];
     });
-}
+}*/
+
+function reverseString(arr){ //good, now we get a variable for free! kinda :D
+
+
+    let reverse = '';
+    for( let i = 0; i < arr.length ; i++){ //exit will be here, then we skip the entire loop. 
+      //now that we iterate through the array, we need to store the new values somehow. lets copy how we did it before
+      reverse =  arr[i] + reverse;  /// where did we every define char? : good : didn't //now what, we need to build this string so...// two problems. First arr[3] is undefined. second problem: it will output arr[2] every time. good//...? arr  : how do we get a value out of an array?  arr[x] 
+  //  i.toString(''); // no need. 
+    }
+    
+    for( let i = 0; i < arr.length; i++){
+      arr[i] = reverse[i];
+    }
+  
+  
+  }
+
+  console.log(reverseString('stuff'));
 
 /*
 function reverseString(str){
